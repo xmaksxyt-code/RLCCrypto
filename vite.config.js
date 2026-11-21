@@ -1,8 +1,9 @@
+
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react(), tailwindcss()],
-  base: '/RLCCrypto/',
-})
+  base: mode === 'github' ? '/RLCCrypto/' : '/',
+}))
